@@ -46,7 +46,10 @@ function setup() {
   thief.addAnimation("thiefUR.png", thiefstandingUR);
   thief.scale = 0.7;
 
-  diamond = createSprite(473,208);
+  thief.setCollider("circle",0,0,10);
+  thief.debug = true;
+
+  diamond = createSprite(473,208,25,25);
   diamond.addImage("diamond.png", diamondImg);
   diamond.scale = 0.1;
 
@@ -184,6 +187,8 @@ function setup() {
 
 function draw() {
   background(bg); 
+
+ 
   
  if(keyWentDown(DOWN_ARROW)){
    thief.velocityY=3;
@@ -228,9 +233,50 @@ function draw() {
     thief.addAnimation("standing_L", thiefstandingLR);
     thief.changeAnimation("standing_L");
   }
+
+
+
+  if(thief.collide(door1)){
+    door1.destroy();
+  }
+
+  
+
+  /*if (thief.isTouching(wall1)||thief.isTouching(wall2)||
+  thief.isTouching(wall3)||thief.isTouching(wall4)||
+  thief.isTouching(wall5)||thief.isTouching(wall6)||
+  thief.isTouching(wall7)||thief.isTouching(wall8)||
+  thief.isTouching(wall9)||thief.isTouching(wall10)||
+  thief.isTouching(wall11)||thief.isTouching(wall12)||
+  thief.isTouching(wall13)||thief.isTouching(wall14)||
+  thief.isTouching(wall15)||thief.isTouching(wall16)||
+  thief.isTouching(wall17)||thief.isTouching(wall18)||
+  thief.isTouching(wall19)||thief.isTouching(wall20)||
+  thief.isTouching(wall21)||thief.isTouching(wall22)){
+  thief.collide(wall1);
+  thief.collide(wall2);
+  thief.collide(wall3);
+  thief.collide(wall4);
+  thief.collide(wall5);
+  thief.collide(wall6);
+  thief.collide(wall7);
+  thief.collide(wall8);
+  thief.collide(wall9);
+  thief.collide(wall10);
+  thief.collide(wall11);
+  thief.collide(wall12);
+  thief.collide(wall13);
+  thief.collide(wall14);
+  thief.collide(wall15);
+  thief.collide(wall16);
+  thief.collide(wall17);
+  thief.collide(wall18);
+  thief.collide(wall19);
+  thief.collide(wall20);
+  thief.collide(wall21);
+  thief.collide(wall22);
+  }*/
    
  
-
-
   drawSprites();
 }
